@@ -1,0 +1,28 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"  
+            "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	
+	<bean id="accountsService" 
+          class="com.virtualpairprogrammers.avalon.services.AccountsServiceMockImpl"/>
+
+    <bean id="bookService"       
+          class="com.virtualpairprogrammers.avalon.services.BookServiceMockImpl"/>
+
+    <bean id="purchasingService"       
+	   	  class="com.virtualpairprogrammers.avalon.services.PurchasingServiceImpl">
+	   	  
+	   	  
+	 	<!-- <property name="bookService" ref="bookService"/> -->   
+	 	<!-- <property name="accountService" ref="accountService"/> -->   
+	   	
+	   	<!-- Instead of using argument property name can the the object be instantiated by an argument constructor -->
+	   	<!-- If more than one attribute of the same type is used in the constructor  -->
+	   	<!-- index is used to associate the parameter with the service --> 
+		<constructor-arg index="1" ref="bookService"/>
+		<constructor-arg index="0" ref="accountsService"/>	   	  
+		<!--  Not necessary in this case since they are of different type -->
+
+	</bean>
+	   	  
+</beans>
+
